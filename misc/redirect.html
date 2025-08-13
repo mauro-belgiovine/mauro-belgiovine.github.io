@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Redirecting to New Site - Mauro Belgiovine</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Automatic redirect using meta refresh (redirects after 3 seconds) -->
+    <meta http-equiv="refresh" content="3;url=https://mauro-belgiovine.github.io" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://mauro-belgiovine.github.io/images/ico/icons8-feels-guy-windows-11-16.png">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1b1f20 0%, #2c3e50 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        
+        .redirect-container {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: #5c4c52;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        p {
+            margin: 20px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .countdown {
+            font-size: 3em;
+            font-weight: bold;
+            color: #5c4c52;
+            margin: 30px 0;
+        }
+        
+        .redirect-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #5c4c52;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: 2px solid #5c4c52;
+        }
+        
+        .redirect-button:hover {
+            background: transparent;
+            color: #5c4c52;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(92, 76, 82, 0.3);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #5c4c52;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .redirect-container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="logo">MB</div>
+        <h1>Site Moved!</h1>
+        <p>This website has been updated and moved to a new location.</p>
+        <p>You will be automatically redirected in <span class="countdown" id="countdown">3</span> seconds.</p>
+        
+        <div class="spinner"></div>
+        
+        <p>If you are not redirected automatically, please click the button below:</p>
+        <a href="https://mauro-belgiovine.github.io" class="redirect-button">Visit New Site</a>
+        
+        <p style="font-size: 0.9em; opacity: 0.7; margin-top: 40px;">
+            New URL: <strong>https://mauro-belgiovine.github.io</strong>
+        </p>
+    </div>
+
+    <script>
+        // JavaScript fallback for redirect
+        let countdownElement = document.getElementById('countdown');
+        let timeLeft = 3;
+        
+        // Update countdown every second
+        const countdownTimer = setInterval(function() {
+            timeLeft--;
+            countdownElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdownTimer);
+                // Redirect using JavaScript
+                window.location.href = 'https://mauro-belgiovine.github.io';
+            }
+        }, 1000);
+        
+        // Immediate redirect fallback (in case meta refresh fails)
+        setTimeout(function() {
+            window.location.href = 'https://mauro-belgiovine.github.io';
+        }, 3000);
+    </script>
+</body>
+</html>
